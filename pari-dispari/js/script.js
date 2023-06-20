@@ -7,29 +7,69 @@
 
 
 
-let userNumber = prompt('Scegli un numero da 1 a 5');
-parseInt(userNumber);
+const user = prompt('Scegli un numero da 1 a 5');
+const userNumber = parseInt(user);
 console.log('userNumber' ,userNumber, typeof userNumber);
 
 if(userNumber != null) {
     document.getElementById('user-number').innerHTML = userNumber;
-}
-else if(userNumber > 5 || userNumber < 1) {
-    document.getElementById('user-number').innerHTML = 'Numero non valido';
+
 }
 
+if(userNumber > 5 || userNumber < 1) {
+    alert('Numero non valido');
+}
 
 
-const computerNumber = document.getElementById('computer-number');
 
-
-function getRndInteger(){
-    
-    return Math.floor(Math.random() * (5 - 1 + 1) ) + 1;
-
-};
-
-computerNumber.innerHTML = getRndInteger(1, 5);
+const computerNumber = getRndInteger(1, 5);
 
 let sum = computerNumber + userNumber;
 console.log(sum, typeof sum);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function getRndInteger(min, max) {
+    
+    return Math.floor(Math.random() * (max - min + 1) ) + 1;
+
+}
+
+
+function isEven(sum) {
+
+    return sum % 2 == 0;
+    
+    
+    
+    
+}
+
+if(isEven(sum)) {
+    document.getElementById('winner').innerHTML = 'Hai vinto';
+}
+else {
+    document.getElementById('winner').innerHTML = 'Ha vinto il computer';
+}
