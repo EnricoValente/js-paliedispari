@@ -7,9 +7,18 @@
 
 
 
-const userNumber = prompt('Scegli un numero da 1 a 5');
+let userNumber = prompt('Scegli un numero da 1 a 5');
 parseInt(userNumber);
-console.log(userNumber);
+console.log('userNumber' ,userNumber, typeof userNumber);
+
+if(userNumber != null) {
+    document.getElementById('user-number').innerHTML = userNumber;
+}
+else if(userNumber > 5 || userNumber < 1) {
+    document.getElementById('user-number').innerHTML = 'Numero non valido';
+}
+
+
 
 const computerNumber = document.getElementById('computer-number');
 
@@ -22,3 +31,5 @@ function getRndInteger(){
 
 computerNumber.innerHTML = getRndInteger(1, 5);
 
+let sum = computerNumber + userNumber;
+console.log(sum, typeof sum);
